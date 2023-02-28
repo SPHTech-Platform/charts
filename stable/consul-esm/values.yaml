@@ -82,6 +82,13 @@ config:
   # CONSUL_HTTP_ADDR environment variable.
   httpAddr: "localhost:8500"
 
+  # The ACL token to use when communicating with the local Consul agent. Can
+  # also be provided through the CONSUL_HTTP_TOKEN environment variable.
+  token: ""
+
+  #The Consul datacenter to use.
+  datacenter: "dc1"
+
   # If you are running Consul using the Consul Helm Chart, you can opt to configure
   # consul-esm to use the local Consul Agent Daemonset pod
   useNodeAgent:

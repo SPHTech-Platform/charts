@@ -44,12 +44,16 @@ data:
     http_addr = "{{ .Values.config.httpAddr }}"
     {{- end }}
 
+    {{- if .Values.config.token }}
     # The ACL token to use when communicating with the local Consul agent. Can
     # also be provided through the CONSUL_HTTP_TOKEN environment variable.
-    token = ""
+    token = "{{ .Values.config.token }}"
+    {{- end }}
 
+    {{- if .Values.config.datacenter }}
     # The Consul datacenter to use.
-    datacenter = ""
+    datacenter = "{{ .Values.config.datacenter }}"
+    {{- end }}
 
     {{- if .Values.config.tls.enabled }}
     # The CA file to use for talking to Consul over TLS. Can also be provided
