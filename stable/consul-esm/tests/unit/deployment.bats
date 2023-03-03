@@ -14,7 +14,7 @@ load _helpers
       . | tee /dev/stderr |
       yq -r '.spec.template.spec.containers[0].env | length' | tee /dev/stderr)
 
-  [ "${actual}" = '0' ]
+  [ "${actual}" = '1' ]
 
   local env=$(helm template \
       --show-only templates/deployment.yaml  \
