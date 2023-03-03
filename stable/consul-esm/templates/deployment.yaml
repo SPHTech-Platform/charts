@@ -1,3 +1,4 @@
+{{- if or (and .Values.config.token.secretName (not .Values.config.token.secretKey))  (and .Values.config.token.secretKey (not .Values.config.token.secretName))}}{{ fail "both config.token.secretKey and config.token.secretName must be set if one of them is provided" }}{{ end -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -92,6 +93,13 @@ spec:
                   fieldPath: "status.hostIP"
             - name: CONSUL_HTTP_ADDR
               value: "{{ if .Values.config.tls.enabled }}https://{{ end }}$(HOST_IP):{{ .Values.config.useNodeAgent.port }}"
+            {{- end }}
+            {{- if .Values.config.token.secretName }}
+            - name: CONSUL_HTTP_TOKEN
+              valueFrom:
+                secretKeyFrom:
+                  name: {{ .Values.config.token.secretName }}
+                  key: {{ .Values.config.token.secretKey }}
             {{- end }}
             {{- if  .Values.env }}
             {{- toYaml .Values.env | nindent 12 }}
