@@ -88,7 +88,7 @@ config:
     secretName: null
     secretKey: null
 
-  #The Consul datacenter to use.
+  # The Consul datacenter to use.
   datacenter: "dc1"
 
   # If you are running Consul using the Consul Helm Chart, you can opt to configure
