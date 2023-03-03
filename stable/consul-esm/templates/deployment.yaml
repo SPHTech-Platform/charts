@@ -93,6 +93,9 @@ spec:
                   fieldPath: "status.hostIP"
             - name: CONSUL_HTTP_ADDR
               value: "{{ if .Values.config.tls.enabled }}https://{{ end }}$(HOST_IP):{{ .Values.config.useNodeAgent.port }}"
+            {{- else }}
+            - name: CONSUL_HTTP_ADDR
+              value: {{ .Values.config.httpAddr }}
             {{- end }}
             {{- if .Values.config.token.secretName }}
             - name: CONSUL_HTTP_TOKEN
