@@ -34,6 +34,26 @@ load _helpers
   [ "${actual}" = 'CONSUL_HTTP_ADDR' ]
 }
 
+@test "deployment: token.secretKey is required when token.secretName is set" {
+  cd `chart_dir`
+
+  run helm template \
+      -s templates/deployment.yaml  \
+      --set 'config.token.secretName=name' \ .
+  [ "$status" -eq 1 ]
+  [[ "$output" =~ "both config.token.secretKey and config.token.secretName must be set if one of them is provided" ]]
+}
+
+@test "deployment: token.secretName is required when token.secretKey is set" {
+  cd `chart_dir`
+
+  run helm template \
+      -s templates/deployment.yaml  \
+      --set 'config.token.secretKey=name' \ .
+  [ "$status" -eq 1 ]
+  [[ "$output" =~ "both config.token.secretKey and config.token.secretName must be set if one of them is provided" ]]
+}
+
 ############################################################
 # TLS
 ############################################################

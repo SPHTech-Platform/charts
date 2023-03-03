@@ -82,9 +82,11 @@ config:
   # CONSUL_HTTP_ADDR environment variable.
   httpAddr: "localhost:8500"
 
-  # The ACL token to use when communicating with the local Consul agent. Can
+  # Kubernetes secret containing the ACL token to use when communicating with the local Consul agent. Can
   # also be provided through the CONSUL_HTTP_TOKEN environment variable.
-  token: ""
+  token:
+    secretName: null
+    secretKey: null
 
   #The Consul datacenter to use.
   datacenter: "dc1"
