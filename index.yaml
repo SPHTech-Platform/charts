@@ -3,6 +3,16 @@ entries:
   consul-esm:
   - apiVersion: v1
     appVersion: 0.7.1
+    created: "2023-03-03T23:44:17.374258063Z"
+    description: Consul ESM for external service health checks in Consul
+    digest: 6a648340f396c9b9f4c1d84a47af47b9811bd7ee2dbb8f276e5c9c7793705f2d
+    home: https://github.com/hashicorp/consul-esm
+    name: consul-esm
+    urls:
+    - https://github.com/SPHTech-Platform/charts/releases/download/consul-esm-0.2.3/consul-esm-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v1
+    appVersion: 0.7.1
     created: "2023-03-03T23:21:48.531020297Z"
     description: Consul ESM for external service health checks in Consul
     digest: a06a8a3a50a8e89a63c4362b7bc58309742a4aa964c0a01396c7e331806efc65
@@ -31,4 +41,4 @@ entries:
     urls:
     - https://github.com/SPHTech-Platform/charts/releases/download/consul-esm-0.2.0/consul-esm-0.2.0.tgz
     version: 0.2.0
-generated: "2023-03-03T23:21:48.531030297Z"
+generated: "2023-03-03T23:44:17.374272263Z"
