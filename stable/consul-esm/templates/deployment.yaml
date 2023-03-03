@@ -97,7 +97,7 @@ spec:
             {{- if .Values.config.token.secretName }}
             - name: CONSUL_HTTP_TOKEN
               valueFrom:
-                secretKeyFrom:
+                secretKeyFroms:
                   name: {{ .Values.config.token.secretName }}
                   key: {{ .Values.config.token.secretKey }}
             {{- end }}
